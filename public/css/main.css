@@ -1,0 +1,35 @@
+/*main.css*/
+
+body{
+    margin-top: 5em;
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
+
+p {
+    text-align: center;
+}
+.column {
+    border-radius: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    fill:red;
+    width: 6rem;
+    height: 3.25rem;
+    transform: scaleY(-1);
+}
+
+#lol {
+    margin-top: 1em;
+}
+
+#card-element {
+    margin-top: 1em;
+}
+
+
+

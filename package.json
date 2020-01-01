@@ -1,0 +1,25 @@
+{
+  "name": "freeheroin",
+  "version": "1.0.0",
+  "description": "free information on how to get heroin",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "author": "meleeman01",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "axios": "^0.19.0",
+    "bulma": "^0.8.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "hbs": "^4.0.6",
+    "https": "^1.0.0",
+    "stripe": "^7.14.0",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  }
+}

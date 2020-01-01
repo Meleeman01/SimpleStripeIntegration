@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{#if token}}SUCCESS{{/if}}</title>
+	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Free heroin</title>
+	<link rel="stylesheet" type="text/css" href="/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+
+</head>
+<body>
+	{{#if token.hash }}
+	<h1 class="title">Thank you, here is your pdf</h1>
+	<label>How to get infinite heroin</label>
+	<a href="/sample.pdf" download><button>Download</button></a>
+	{{else}}
+	<h1 class="title">nice try :)</h1>
+	{{/if}}
+	
+</body>
+</html>
