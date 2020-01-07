@@ -64,15 +64,27 @@ app.post('/charge', function(req,res){
     // Token is created using Stripe Checkout or Elements!
     // Get the payment token ID submitted by the form:
     const token = req.body.stripeToken; // Using Express
-    const email = req.body.email;
+    const os = req.body.os;
+
+    function amount(os){
+        if (os == 'mac') {
+            return 1000; 
+        }
+        else if (os == 'windows') {
+            return 500;
+        }
+        else {
+            //set to string which will return an error if values have been tampered with.
+            return 'lol try again';
+        }
+    }
 
     (async () => {
         const charge = await stripe.charges.create({
-            amount: 1500,
+            amount: amount(os),
             currency: 'usd',
             description: 'Example charge',
             source: token,
-            receipt_email: email,
         },function(err,charge){
             if(err) {
                 console.log('there is an error with your transaction');
@@ -112,7 +124,7 @@ app.post('/charge', function(req,res){
                 });
             }
             else{
-                console.log(charge.source);
+                console.log(charge);
                 res.render('success',{
                     token:generateSecureHash()
                 });

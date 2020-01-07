@@ -3,14 +3,25 @@ var stripe = Stripe('pk_test_4lIBlprsnftDmlqOeIbKnedx00E8I3I1gB');
 var elements = stripe.elements();
 
 //for payment modals
-let button = document.querySelector('#button');
+let windows = document.querySelector('#windows');
+let mac = document.querySelector('#mac');
 let modal = document.querySelector('.modal');
 let modalExit = document.querySelector('.modal-close');
-
-button.addEventListener('click',function() {
+let os = '';
+ 
+windows.addEventListener('click',function() {
     //stripe integration
+    let title = modal.querySelector('.subtitle');
+    title.innerHTML = 'Cost $5';
     modal.classList.add('is-active');
+    os = 'windows';
 
+});
+mac.addEventListener('click',function(){
+    let title = modal.querySelector('.subtitle');
+    title.innerHTML = 'Cost $10';
+    modal.classList.add('is-active');
+    os = 'mac';
 });
 
 modalExit.addEventListener('click',function(e){
@@ -73,6 +84,11 @@ function stripeTokenHandler(token) {
     hiddenInput.setAttribute('name', 'stripeToken');
     hiddenInput.setAttribute('value', token.id);
     form.appendChild(hiddenInput);
+    var hidden2 = document.createElement('input');
+    hidden2.setAttribute('type', 'hidden');
+    hidden2.setAttribute('name', 'os');
+    hidden2.setAttribute('value', os);
+    form.appendChild(hidden2);
 
     // Submit the form
     form.submit();
